@@ -1,0 +1,34 @@
+clear all;
+% 数据准备
+load x.mat
+t=linspace(1790,2000,22);
+y=x;
+y0=[3.9];
+% Nonlinear least square estimate using lsqnonlin()
+beta0=[0.2 200 ];
+lb=[0 0 ];
+ub=[inf inf ];
+[beta,resnorm,residual,exitflag,output,lambda,jacobian] = ...
+    lsqnonlin(@Func,beta0,lb,ub,[],t,y,y0);         
+ci = nlparci(beta,residual,jacobian);
+beta
+% result
+fprintf('\n Estimated Parameters by Lsqnonlin():\n')
+for i=1:length(beta)
+    % 参数值与误差
+    fprintf('\t beta %d = %.4f ± %.4f\n',i,beta(i),ci(i,2)-beta(i))
+end
+fprintf('  The sum of the residual squares is: %.1e\n\n',sum(sum(residual.^2)))
+% plot of fit results
+tspan = [1790  2210];
+[tt yc] = ode45(@logit,tspan,y0,[],beta);
+tc=linspace(1790,2210,200);
+yca1 = spline(tt',yc(:,1),tc);
+y=y';
+figure
+plot(t,y(1,:),'ro',tc,yca1,'b-');
+hold on
+xlabel('Time');
+ylabel('美国人口');
+hold off
+%fig2plotly();

@@ -1,0 +1,7 @@
+function dydt = logit(t,y,beta)          % Model equations
+dydt = beta(1)*(1-y/);
+dydt=dydt';
+
+
+
+ 

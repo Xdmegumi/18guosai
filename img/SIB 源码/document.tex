@@ -1,0 +1,30 @@
+% Author: Till Tantau
+% Source: The PGF/TikZ manual
+
+\documentclass[UTF8]{ctexart}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\begin{document}
+	
+	
+	
+	
+	
+	
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+  \node[initial,state] (A)                    {健康者 $s(t)$};
+  \node[state]         (B) [above right of=A] {过渡者 $b(t)$};
+  \node[state]         (C) [below right of=B] {传染者 $i(t)$};
+
+  \path (A) edge              node {$s \lambda ip$} (B)
+            edge              node {$s \lambda i (1-p)$} (C)
+        (B)edge              node {$b \lambda i$} (C)
+            edge              node {$\mu b$} (A)
+       (C)edge              node {$\mu i$} (A);
+\end{tikzpicture}
+
+\end{document}
