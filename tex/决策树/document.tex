@@ -25,32 +25,49 @@ derived styles for specific kinds of nodes.
   dummy/.style    = {circle,draw}
 }
 \begin{document}
+	
 \begin{tikzpicture}
   [
-    grow                    = right,
-    sibling distance        = 6em,
-    level distance          = 10em,
+    grow                    = right,  % 生长方向
+   % sibling distance        = 3cm,  % 层内距离
+   % level distance          = 8em,  % 层间距离
+   	level 1/.style={sibling distance=3cm,level distance=3.5cm},  %% 各层级距离
+    level 2/.style={sibling distance=2cm,level distance=3.5cm},
+    level 3/.style={sibling distance=2cm,level distance=3.5cm},
+    level 4/.style={sibling distance=1cm,level distance=3.5cm},
     edge from parent/.style = {draw, -latex},
     every node/.style       = {font=\footnotesize},
     sloped
   ]
-  \node [root] {树根}
-    child { node [env] {equation}
-      edge from parent node [below] {右下孩子} }
-    child { node [dummy] {} % 空节点
-      child { node [dummy] {}
-        child { node [env] {align\\flalign}
-          edge from parent node [below] {at relation sign?} }
-        child { node [env] {alignat}
-          edge from parent node [above] {at several}
-                           node [below] {places?} }
-        child { node [env] {gather}
-                edge from parent node [above] {centered?} }
-        edge from parent node [below] {aligned?} }
-      child { node [env] {multline}
+  \node [root] {职业}
+    child { node [dummy] {年龄} % 空节点
+    	 child { node [env] {有意向}
+    	 	 edge from parent node [below] {$>25$} }
+     	 child { node [env] {无意向}
+     	 	 edge from parent node [above] {$\le25$} }
+      edge from parent node [below] {自由职业} }
+    child { node [dummy] {年龄} % 空节点
+    	 child { node [dummy] {收入}
+    	 	 child { node [env] {无意向}
+    	 		edge from parent node [below] {$<10000$} }
+     		 child { node [env] {有意向}
+     			edge from parent node [above] {$\ge10000$} }
+    		edge from parent node [below] {$\le35$} }
+    	child { node [env] {有意向}
+    		edge from parent node [above] {$>35$} }
+  	  edge from parent node [above] {白领} }
+    child { node [dummy] {年龄} % 空节点
+      child { node [env] {无意向}
+              edge from parent node [below, align=center]
+                {$>40$}}
+      child { node [dummy] {学历}
+      	 child { node [env] {有意向}
+      		edge from parent node [below] {初中} }
+      	child { node [env] {无意向}
+      		edge from parent node [above] {高中} }
               edge from parent node [above, align=center]
-                {first left,\\centered,}
-              node [below] {last right}}
-              edge from parent node [above] {multi-line?} };
+            	{$\le 40$}}
+          edge from parent node [above] {工人} };
 \end{tikzpicture}
+
 \end{document}
