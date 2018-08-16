@@ -1,0 +1,17 @@
+本文件夹的程序包括仿真基本的多局域世界网络及改进的多局域世界网络的主程序及相关的函数如下：
+generategraph.m：生成m0个节点，e0条边的网络的邻接矩阵a的函数；
+addnode.m：增加一个新点，且新点连m条边的函数；
+addedge.m：向一个已知网络添加m次边的函数；
+deleteedge.m：在一个网络中删除边m次的函数；
+addlongedge.m：在局域世界间加m条长程边的函数；
+mydegree.m：求度的频数分布函数，画度分布的柱状图；
+Matlab_to_Pajek.m：把网络的邻接矩阵转化成Pajek软件数据的函数；
+net_ex3_10_1.m：仿真基本的多局域世界网络的主程序。
+
+poisstest.m：对度分布进行Poisson检验的函数；
+myAPL.m：计算网络直径和平均路径长度的函数；
+mycluster.m：计算聚类系数的函数；
+mycorrelations.m：计算度相关系数的函数；
+mycoreness.m：计算节点核数的函数；
+degreeaddedge.m：对度为0或1的节点随机加边；
+net_ex3_10_2.m：仿真改进的多局域世界网络的主程序。

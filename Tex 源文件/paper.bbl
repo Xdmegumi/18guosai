@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{CC01a}
+Chih-Chung Chang and Chih-Jen Lin.
+\newblock {LIBSVM}: A library for support vector machines.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology},
+  2:27:1--27:27, 2011.
+\newblock Software available at \url{http://www.csie.ntu.edu.tw/~cjlin/libsvm}.
+
+\bibitem{kingma2013auto}
+Diederik~P Kingma and Max Welling.
+\newblock Auto-encoding variational bayes.
+\newblock {\em arXiv preprint arXiv:1312.6114}, 2013.
+
+\bibitem{t-SNE}
+Laurens van~der Maaten and Geoffrey Hinton.
+\newblock Visualizing data using t-sne.
+\newblock {\em Journal of machine learning research}, 9(Nov):2579--2605, 2008.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{Wu2017A}
+Fei Wu and Ramteen Sioshansi.
+\newblock A stochastic flow-capturing model to optimize the location of
+  fast-charging stations with uncertain electric vehicle flows.
+\newblock {\em Transportation Research Part D Transport \& Environment},
+  53:354--376, 2017.
+
+\bibitem{abc}
+胡毅华, 杨旭龙, and 刘媛萍.
+\newblock 太阳影子定位模型的构建.
+\newblock {\em 洛阳师范学院学报}, (11):13--18, 2015.
+
+\end{thebibliography}

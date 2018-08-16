@@ -1,0 +1,16 @@
+clear all;
+clc;
+num=xlsread('D:\数学建模\数模资料分享\暑期培训\2017第十届华中地区数学建模邀请赛_个人赛\data1.xlsx','Sheet1','A1:S135');
+input_train=num(1:84,1:18)';
+output_train=num(1:84,19)';
+input_test=num(85:110,1:18)';
+[inputn,inputps]=mapminmax(input_train);
+[outputn,outputps]=mapminmax(output_train);
+net=newff(inputn,outputn,10);
+net.trainParam.epochs=1000;
+net.trainParam.lr=0.1;
+net.trainParam.goal=0.00000001;
+net=train(net,inputn,outputn);
+inputn_test=mapminmax('apply',input_test,inputps);
+an=sim(net,inputn_test);
+BPoutput=mapminmax('reverse',an,outputps);
