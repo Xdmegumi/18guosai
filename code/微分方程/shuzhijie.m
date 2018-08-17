@@ -1,0 +1,28 @@
+%% SIR 模型
+[t,x]=ode45('SIR',[0 30],[0.02 0.98]);  % 第一个是时间范围，第二个是初始点
+figure
+subplot(2,1,1)
+plot(t,x(:,1),'-',t,x(:,2),'*')
+grid on
+subplot(2,1,2)
+arrowPlot(x(:,2),x(:,1),'number', 3)
+title('相轨线——感染者与健康者关系')
+%% SIB 模型（自建，未必有效）
+[t,x]=ode45('SIB',[0 60],[0.02 0.92 0.06]);  % 第一个是时间范围，第二个是初始点
+plot3(x(:,1),x(:,2),x(:,3))
+figure
+plot(t,x(:,1),'-',t,x(:,2),'*',t,x(:,3),'k')
+grid on
+figure
+subplot(3,1,1)
+arrowPlot(x(:,2),x(:,3),'number', 3)
+title('相轨线——健康者与过渡者关系')
+grid on
+subplot(3,1,2)
+arrowPlot(x(:,1),x(:,2),'number',3,'scale',0.2)
+title('相轨线——感染者与健康者关系')
+grid on
+subplot(3,1,3)
+arrowPlot(x(:,1),x(:,3),'number', 3)
+title('相轨线——感染者与过渡者关系')
+grid on
