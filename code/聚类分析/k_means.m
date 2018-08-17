@@ -2,8 +2,8 @@ clc
 clear
 %data为150行8列的矩阵。注意数据的格式为：行为样本列为特征
 data = [randn(50,8)+ones(50,8);randn(50,8)-ones(50,8);randn(50,8)+[ones(50,4),-ones(50,4)]];
-%将8维数据将为2维后再聚为3类
-dim_red_data = compute_mapping(data,'LDA',2);
+%将8维数据降为2维后再聚为3类
+dim_red_data = compute_mapping(data,'Autoencoder',2);
 opts = statset('Display','final');
 % [聚类标号,质心,类内点到质心距离和，点到各质心距离] = kmeans(数据集,类的个数,?,?)
 [idx,C,sumd,D] = kmeans(dim_red_data,3,'Replicates',5,'Options',opts);

@@ -15,26 +15,28 @@ function PlotClusterinResult(X, IDX)
 
     k=max(IDX);
 
-    Colors=hsv(k);
-
+    Colors=[0.96,0.55,0.53;0.49,0.67,0.98];
+    S = {'s','o'};
     Legends = {};
     for i=0:k
         Xi=X(IDX==i,:);
         if i~=0
-            Style = 'x';
-            MarkerSize = 8;
+            Style = S{i};
+            MarkerSize = 7;
+            LineWidth = 1.2;
             Color = Colors(i,:);
             Legends{end+1} = ['Cluster #' num2str(i)];
         else
-            Style = 'o';
-            MarkerSize = 6;
+            Style = 'x';
+            MarkerSize = 9;
+            LineWidth = 2;
             Color = [0 0 0];
             if ~isempty(Xi)
                 Legends{end+1} = 'Noise';
             end
         end
         if ~isempty(Xi)
-            plot(Xi(:,1),Xi(:,2),Style,'MarkerSize',MarkerSize,'Color',Color);
+            plot(Xi(:,1),Xi(:,2),Style,'Color',Color,'MarkerSize',MarkerSize,'LineWidth',LineWidth);
         end
         hold on;
     end

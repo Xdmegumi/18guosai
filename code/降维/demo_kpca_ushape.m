@@ -70,4 +70,4 @@ for i=1:numeig,
 	set(gca, 'XTick', [])
 	set(gca, 'YTick', [])
 end
-fig2plotly()
+%fig2plotly()
