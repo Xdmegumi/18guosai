@@ -123,7 +123,7 @@ Options.seed = sum(100*clock);              % 初始化随机种子（使用此项，各算法初
 [x8,f8,F8] = SwarmIntelligence(Options,'DEb2');     % 标准差分算法(DE/best/2/bin)
 
 % [x9,f9] = SwarmIntelligence(Options,'FMINCON');     % FMINCON优化
-% [x10,f10] = SwarmIntelligence(Options,'GA');        % GA优化
+[x10,f10] = SwarmIntelligence(Options,'GA');        % GA优化
 
 %--------------------------------------------------------------------------
 % 函数测试
@@ -209,7 +209,8 @@ plot(log10(F5),'g.-');
 plot(log10(F6),'.-','color',[0.4 0.4 0.4]);
 plot(log10(F7),'y.-');
 plot(log10(F8),'r.-');
-legend('PPNGA','SFLA','MSFLA','AF-SFLA','PSO','ABC','DEr1','DEb2'); 
+plot(log10(f10),'g.-');
+legend('PPNGA','SFLA','MSFLA','AF-SFLA','PSO','ABC','DEr1','DEb2','GA'); 
 hold off;
 
 % figure; xlabel('gen'); ylabel('log10(F)'); title(Options.fitness(4:end)); hold on

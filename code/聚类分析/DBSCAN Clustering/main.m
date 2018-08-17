@@ -32,6 +32,6 @@ IDX=DBSCAN(X,epsilon,MinPts);
 
 PlotClusterinResult(X, IDX);
 title(['DBSCAN Clustering (\epsilon = ' num2str(epsilon) ', MinPts = ' num2str(MinPts) ')']);
-fig2plotly();
+%fig2plotly();
 
 
