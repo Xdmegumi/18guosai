@@ -17,9 +17,10 @@ close all;
 
 %% Load Data
 
-data=load('mydata');
-X=data.X;
-
+% data=load('mydata');
+% X=data.X;
+load vec(2).mat
+X=vec
 
 %% Run DBSCAN Clustering Algorithm
 

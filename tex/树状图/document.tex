@@ -1,0 +1,62 @@
+% Decision tree
+% Author: Stefan Kottwitz
+% https://www.packtpub.com/hardware-and-creative/latex-cookbook
+\documentclass[UTF8,border=18pt]{ctexart}
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: Decision tree
+:Tags: Trees;Cookbook
+:Author: Stefan Kottwitz
+:Slug: decision-tree
+
+A horizontal tree, growing to the right.
+I created a basic style for tree nodes, and
+derived styles for specific kinds of nodes.
+\end{comment}
+\usepackage{tikz}
+\tikzset{
+	treenode/.style = {shape=rectangle, rounded corners,
+		draw, align=center,
+		top color=white, bottom color=blue!20},
+	bottom/.style     = {treenode, font=\Large, bottom color=red!30},
+	root/.style     = {treenode, font=\Large, bottom color=red!10},
+	env/.style      = {treenode, font=\ttfamily\normalsize},
+	dummy/.style    = {circle,draw}
+}
+\begin{document}
+	
+	\begin{tikzpicture}
+	[
+	grow                    =-90,  % 生长方向
+	%    start =going below,
+	% sibling distance        = 3cm,  % 层内距离
+	% level distance          = 8em,  % 层间距离
+	level 1/.style={sibling distance=8cm,level distance=3.5cm},  %% 各层级距离
+	level 2/.style={sibling distance=3.2cm,level distance=3.5cm},
+	level 3/.style={sibling distance=2cm,level distance=3.5cm},
+	level 4/.style={sibling distance=1cm,level distance=3.5cm},
+	edge from parent/.style = {draw, -latex},
+	every node/.style       = {font=\normalsize},
+	sloped
+	]
+	\node [bottom] {高等数学学生评价指标体系 $S$}
+	child { node [root] {过程考核 $w_1S_1$} % 空节点
+		child { node [env] {$S_1=\sum \limits_{i=1}^4a_iX^{(i)}$}
+			edge from parent node [below] {问题 2} }
+		edge from parent node [above] {考察性评价} }
+	child { node [root] {过程控制 $w_2S_2$} % 空节点
+		child { node [env] {$s_1$：课堂主动回答}
+			edge from parent node [above, align=center]
+			{$c_1$}}
+		child { node [env] {$s_2$：课后交流}
+			edge from parent node [above, align=center]
+			{$c_2$}}
+    	child { node [env] {$s_3$：小组讨论}
+			edge from parent node [above, align=center]
+			{$c_3$}}
+		edge from parent node [above] {表现性评价} };
+	\end{tikzpicture}
+	
+\end{document}
